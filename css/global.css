@@ -1,0 +1,150 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+/* header section */
+header {
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  height: 40px;
+  background-color: #55527F;
+  z-index: 100;
+}
+
+header nav {
+  display: flex;
+  width: 100%;
+}
+
+header .navlist {
+  flex-grow: 100;
+  margin: 0px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 20px;
+}
+
+header a {
+  font-size: 16;
+  text-decoration: none;
+  color: white;
+}
+
+header img {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+}
+
+/* body section */
+body {
+  margin: 0px; /* reset a stupid default */
+  background-color: #57426B;
+}
+
+* {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
+
+
+/* page content */
+
+content * {
+  padding: 6px;
+  border-radius: 20px;
+}
+
+content a {
+  color: black;
+  text-decoration: none;
+}
+
+content img {
+  max-height: 400px;
+}
+
+/* grid layout */
+content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  /* grid-template: repeat(4, 600px) / 1fr; */
+}
+
+/* content section.title   { grid-area: 1; } */
+/* content section.blurb  { grid-area: 2; } */
+/* content section.poem  { grid-area: 3; } */
+/* content section.contact { grid-area: 4; } */
+
+content section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1; /* go behind the header, chrome janks without this, thanks google */
+}
+
+content section.title {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 100px;
+}
+content section.title p {
+  margin: 0;
+}
+
+content section.blurb {
+  flex-direction: row;
+  background-color: rgba(0,0,0,0.25);
+}
+
+content section.poem {
+  flex-direction: row-reverse;
+  background-color: rgba(0,0,0,0.25);
+}
+
+content section.works {
+  flex-direction: column;
+  background-color: rgba(0,0,0,0.25);
+}
+
+content section.contact {
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(0,0,0,0.25);
+  height: 200px;
+}
+
+
+
+/* footer section */
+.content-wrapper { /* technically not the footer but that wrapper is for positioning the footer */
+  margin-bottom: 80px;
+}
+
+.qt {
+ 	transition:transform 1s ease; /* these go outside the trigger bc toggling it off makes it snap */
+}
+
+.qt:hover {
+  /* voidlinux made me love doing this */
+  transform: rotate(360deg);
+}
+
+footer {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+
+  display: flex;
+  justify-content: space-around;
+  background-color: #55527F;
+}
