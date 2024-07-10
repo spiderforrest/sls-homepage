@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>SOAPY SMIFF</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="css/global.css">
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,23 +34,22 @@
               Their debut poetry collection, “The Freshman Blues,” is releasing in a few months! On a given day, you can find them reading, petting their cats, thinking about bread, making awful puns, and wearing blindingly colorful outfits.
             </p>
           </div>
-          <img src="./img/face-template.png" />
+          <img src="img/face-template.png" />
         </section>
 
         <section class="poem">
-          <h2>ik you sent the poem but i losted it ;_;</h2>
-          <p>lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum
-            lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum
-            lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum
-            lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum
-            lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum
-            lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum
-            lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum
-            lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum
-            lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum
-            lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum
-            lorum ipsum lorum ipsum
-          </p>
+          <h2 id=poem-title>This was supposed to load a random poem, but something went wrong</h2>
+          <p id=poem-body>Sorry!</p>
+          <script>
+          // fetch the list of poems
+          fetch('works/poems.json').then((res) => res.json()).then((obj) => {
+            // pick one
+            const i = Math.floor(Math.random() * obj.length)
+            console.log(i)
+            // set content as html, strings are formatted html
+            document.getElementById("poem-title").innerHTML = "Poem of the day: " + obj[i].title
+            document.getElementById("poem-body").innerHTML = obj[i].body
+          }); </script>
         </section>
 
         <section class="works">

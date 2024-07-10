@@ -89,13 +89,13 @@ content section {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: column;
   z-index: 1; /* go behind the header, chrome janks without this, thanks google */
 }
 
 content section.title {
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   margin: 100px;
 }
 content section.title p {
@@ -108,22 +108,25 @@ content section.blurb {
 }
 
 content section.poem {
-  flex-direction: row-reverse;
   background-color: rgba(0,0,0,0.25);
 }
 
 content section.works {
-  flex-direction: column;
   background-color: rgba(0,0,0,0.25);
 }
 
 content section.contact {
   justify-content: center;
-  flex-direction: column;
   background-color: rgba(0,0,0,0.25);
   height: 200px;
 }
 
+
+@media (max-width: 900px) {
+  h1 {
+    font-size: 32;
+  }
+}
 
 
 /* footer section */
