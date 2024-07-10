@@ -1,0 +1,18 @@
+.selected {
+  /* text-decoration: underline; */
+  background-color: rgba(255,255,255,0.1);
+}
+
+
+content ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+content li {
+  list-style: none;
+  flex-basis: 25%;
+}
+

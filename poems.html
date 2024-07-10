@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>INDIGO</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/works.css">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <nav role="navigation" id="primary-nav">
+        <!-- <a href=""img src="favicon.ico"/></a> -->
+        <ul class="navlist">
+          <li><a href="real.html">Home</a></li>
+          <li><a href="poems.html">Poems</a></li>
+          <li><a href="stories.html">Stories</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <content>
+      <section class="selector">
+        <ul id="selector-list"></ul>
+      </section>
+      <section class="poem">
+        <h2 id=poem-title>This was supposed to load a random poem, but something went wrong</h2>
+        <p id=poem-body>Sorry!</p>
+      </section>
+    </content>
+
+    <footer>
+      <a href="https://github.com/spiderforrest/sls-homepage"><p>src</p></a>
+      <p>sophie@wehaventpickedadomainyet.com</p>
+      <p title="Site made by Spider Forrest" class="qt">^_^</p>
+    </footer>
+  </body>
+
+  <script>
+  // define function for setting poem
+  function setWork(idx, works) {
+    // incredible. no notes. can't believe the internet works like this
+    const li = document.querySelector(`#selector-list :nth-child(${idx+1})`);
+
+    // populate
+    document.getElementById("poem-title").innerHTML = works[idx].title;
+    document.getElementById("poem-body").innerHTML = works[idx].body;
+    // clear highlight
+    for (const el of document.getElementsByClassName("selected")) {
+      el.classList.remove("selected");
+    }
+    // and highlight the selected
+    li.classList.add("selected")
+  }
+
+
+  // fetch the list of poems
+  fetch('works/poems.json').then((res) => res.json()).then((works) => {
+    // fill the selector
+    for (const idx in works) {
+      // create the element
+      const li = document.createElement("li");
+      li.innerHTML = works[idx].title;
+
+      // change selected work on click
+      li.addEventListener("click", () => setWork(Number(idx), works));
+      // add to dom
+      document.getElementById("selector-list").append(li);
+    }
+
+    // pick one to start
+    const i = Math.floor(Math.random() * works.length);
+    setWork(i, works)
+  });
+  </script>
+</html>

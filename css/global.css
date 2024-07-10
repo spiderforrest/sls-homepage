@@ -55,83 +55,13 @@ body {
 }
 
 
-/* page content */
-
-content * {
-  padding: 6px;
-  border-radius: 20px;
-}
-
-content a {
-  color: black;
-  text-decoration: none;
-}
-
-content img {
-  max-height: 400px;
-}
-
-/* grid layout */
-content {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-
-  /* grid-template: repeat(4, 600px) / 1fr; */
-}
-
-/* content section.title   { grid-area: 1; } */
-/* content section.blurb  { grid-area: 2; } */
-/* content section.poem  { grid-area: 3; } */
-/* content section.contact { grid-area: 4; } */
-
-content section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  z-index: 1; /* go behind the header, chrome janks without this, thanks google */
-}
-
-content section.title {
-  justify-content: center;
-  align-items: center;
-  margin: 100px;
-}
-content section.title p {
-  margin: 0;
-}
-
-content section.blurb {
-  flex-direction: row;
-  background-color: rgba(0,0,0,0.25);
-}
-
-content section.poem {
-  background-color: rgba(0,0,0,0.25);
-}
-
-content section.works {
-  background-color: rgba(0,0,0,0.25);
-}
-
-content section.contact {
-  justify-content: center;
-  background-color: rgba(0,0,0,0.25);
-  height: 200px;
-}
-
-
-@media (max-width: 900px) {
-  h1 {
-    font-size: 32;
-  }
-}
 
 
 /* footer section */
-.content-wrapper { /* technically not the footer but that wrapper is for positioning the footer */
+content { /* technically not the footer but that wrapper is for positioning the footer */
   margin-bottom: 80px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .qt {
