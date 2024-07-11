@@ -9,7 +9,9 @@
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital@0;1&display=swap" rel="stylesheet">
+
   </head>
   <body>
     <header>
@@ -45,8 +47,8 @@
       </section>
 
       <section class="poem">
-        <h2 id=poem-title>This was supposed to load a random poem, but something went wrong</h2>
-        <p id=poem-body>Sorry!</p>
+        <h2 id=poem-title></h2>
+        <p id=poem-body></p>
         <script>
         // fetch the list of poems
         fetch('works/poems.json').then((res) => res.json()).then((obj) => {
@@ -55,12 +57,24 @@
           // set content as html, strings are formatted html
           document.getElementById("poem-title").innerHTML = "Poem of the day: " + obj[i].title
           document.getElementById("poem-body").innerHTML = obj[i].body
-        }); </script>
+        }).catch(()=> {
+            document.getElementById("poem-title").innerHTML = "This should have loaded a random poem, but something went wrong."
+            document.getElementById("poem-body").innerHTML = "Sorry!";
+          });
+        </script>
       </section>
 
       <section class="works">
-        <h2>you got published in two things a while back right?</h2>
-        <p>maybe put some links or info abt that here?</p>
+        <h2>Published works</h2>
+        <p>In <em>UNDER THE MADNESS MAGAZINE</em>: 
+          <a href="https://www.underthemadnessmagazine.com/post/carving-a-place"><em>carving a place</em></a>, 
+          <a href="https://www.underthemadnessmagazine.com/post/tcm-and-carnival-time"><em>TCM and Carnival Time</em></a>, 
+          <a href="https://www.underthemadnessmagazine.com/post/who-am-i-if-the-blob-is-real"><em>Who am I if the Blob is Real</em></a>
+        </p>
+        <p>In <a href="https://store.newwordspress.com/products/new-words-young-poets-vol-1-p663046259"><em>new words young poets vol. 1</em></a></p>
+        <p>In <a href="https://sites.google.com/byramhills.net/queer-writers-of-america/contest/2023-contest-results"><em>Queer Writers of America</em></a>
+          2023 contest winner
+        </p>
       </section>
 
       <section class="contact">
@@ -72,6 +86,7 @@
     <footer>
       <a href="https://github.com/spiderforrest/sls-homepage"><p>src</p></a>
       <p>sophie@wehaventpickedadomainyet.com</p>
+      <p>copyright?</p>
       <p title="Site made by Spider Forrest" class="qt">^_^</p>
     </footer>
   </body>
