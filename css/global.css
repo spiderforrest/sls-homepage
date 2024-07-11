@@ -11,6 +11,9 @@ header {
   height: 40px;
   background-color: #55527F;
   z-index: 100;
+  display: flex; /* how 2 center div 2024 real updated gone wrong not clickbait */
+  justify-content: center;
+  align-items: center;
 }
 
 header nav {
@@ -30,15 +33,13 @@ header .navlist {
 }
 
 header a {
-  font-size: 16;
   text-decoration: none;
   color: white;
+  padding: 6px;
+  border-radius: 20px;
 }
-
-header img {
-  height: 40px;
-  width: 40px;
-  border-radius: 100%;
+header a:hover {
+  background-color: rgba(255,255,255,0.1);
 }
 
 /* body section */
@@ -54,7 +55,38 @@ body {
   color: white;
 }
 
+em {
+  font-style: italic;
+}
 
+
+/* page content section */
+content * {
+  padding: 6px;
+  border-radius: 20px;
+}
+
+content p, content a, content em {
+  padding: 0px;
+}
+
+content img {
+  max-height: 400px;
+}
+
+content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+content section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1; /* go behind the header, chrome janks without this, thanks google */
+}
 
 
 /* footer section */
@@ -80,4 +112,18 @@ footer {
   display: flex;
   justify-content: space-around;
   background-color: #55527F;
+}
+
+/* mobile */
+@media (max-width: 601px) or (orientation: portrait) {
+  header {
+    height: 80px;
+    font-size: 3em;
+  }
+  content {
+    margin-bottom: 120px; /* footer positioning again, there really needs to be better options for handling footers*/
+  }
+  content, footer {
+    font-size: 2em
+  }
 }

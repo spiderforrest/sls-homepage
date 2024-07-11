@@ -1,41 +1,6 @@
 
 /* page content */
 
-content * {
-  padding: 6px;
-  border-radius: 20px;
-}
-
-content a {
-  color: black;
-  text-decoration: none;
-}
-
-content img {
-  max-height: 400px;
-}
-
-/* grid layout */
-content {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-
-  /* grid-template: repeat(4, 600px) / 1fr; */
-}
-
-/* content section.title   { grid-area: 1; } */
-/* content section.blurb  { grid-area: 2; } */
-/* content section.poem  { grid-area: 3; } */
-/* content section.contact { grid-area: 4; } */
-
-content section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  z-index: 1; /* go behind the header, chrome janks without this, thanks google */
-}
 
 content section.title {
   justify-content: center;
@@ -61,9 +26,9 @@ content section.contact {
   height: 200px;
 }
 
-
-@media (max-width: 900px) {
-  h1 {
-    font-size: 32;
+@media (max-width: 601px) or (orientation: portrait) {
+  content section.blurb {
+    flex-direction: column;
   }
 }
+
