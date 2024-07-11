@@ -29,14 +29,15 @@
         <ul id="selector-list"></ul>
       </section>
       <section class="story">
-        <h2 id=story-title>This was supposed to load a random story, but something went wrong</h2>
-        <p id=story-body>Sorry!</p>
+        <h2 id=story-title></h2>
+        <p id=story-body></p>
       </section>
     </content>
 
     <footer>
       <a href="https://github.com/spiderforrest/sls-homepage"><p>src</p></a>
       <p>sophie@wehaventpickedadomainyet.com</p>
+      <p>copyright?</p>
       <p title="Site made by Spider Forrest" class="qt">^_^</p>
     </footer>
   </body>
@@ -58,7 +59,6 @@
     li.classList.add("selected")
   }
 
-
   // fetch the list of stories
   fetch('works/stories.json').then((res) => res.json()).then((works) => {
     // fill the selector
@@ -76,6 +76,9 @@
     // pick one to start
     const i = Math.floor(Math.random() * works.length);
     setWork(i, works)
-  });
+  }).catch(()=> {
+      document.getElementById("poem-title").innerHTML = "This should have loaded a random story, but something went wrong."
+      document.getElementById("poem-body").innerHTML = "Sorry!";
+    });
   </script>
 </html>
