@@ -6,10 +6,11 @@ html {
 /* header section */
 header {
   position: sticky;
+  position: static;
   top: 0px;
   width: 100%;
   height: 40px;
-  background-color: #55527F;
+  background-color: #ffa1be;
   z-index: 100;
   display: flex; /* how 2 center div 2024 real updated gone wrong not clickbait */
   justify-content: center;
@@ -34,29 +35,42 @@ header .navlist {
 
 header a {
   text-decoration: none;
-  color: white;
+  color: #361d79;
   padding: 6px;
   border-radius: 20px;
 }
 header a:hover {
   background-color: rgba(255,255,255,0.1);
+  background-color: rgba(0,0,0,0.1);
 }
 
 /* body section */
 body {
   margin: 0px; /* reset a stupid default */
-  background-color: #57426B;
+  background-color: #361d79;
 }
 
 * {
-  font-family: "Lato", sans-serif;
+  /* font-family: "Lato", sans-serif; */
+  font-family: "Bellota", system-ui;
   font-weight: 400;
   font-style: normal;
-  color: white;
+  color: black;
+  font-size: 1.024em;
 }
 
 em {
   font-style: italic;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  /* font-family: "Caveat Brush", cursive; */
+  font-family: "Croissant One", serif;
+  /* font-family: "Rancho", cursive; */
+  font-weight: 400;
+  font-style: normal;
+  color: black;
+  font-size: 1.4em;
 }
 
 
@@ -77,6 +91,9 @@ content img {
 content {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  margin-left: 20px;
   gap: 30px;
 }
 
@@ -85,24 +102,34 @@ content section {
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
+  width: 100%;
+  max-width: 1180px;
   z-index: 1; /* go behind the header, chrome janks without this, thanks google */
+
+  background-color: #2c81c9;
+  color: black;
+  
+  box-shadow: 8px 6px #d10083;
+}
+content section.color-b {
+  background-color: #92ffaf;
 }
 
 
 /* footer section */
 content { /* technically not the footer but that wrapper is for positioning the footer */
   margin-bottom: 80px;
-  margin-right: 20px;
-  margin-left: 20px;
-}
-
-.qt {
- 	transition:transform 1s ease; /* these go outside the trigger bc toggling it off makes it snap */
 }
 
 .qt:hover {
   /* voidlinux made me love doing this */
   transform: rotate(360deg);
+}
+.qt {
+ 	transition:transform 1s ease; /* these go outside the trigger bc toggling it off makes it snap */
+}
+span.qt {
+  display: inline-block; /* need to not have 0 size to be hovered over */
 }
 
 footer {
@@ -111,7 +138,7 @@ footer {
 
   display: flex;
   justify-content: space-around;
-  background-color: #55527F;
+  background-color: #ffa1be;
 }
 
 /* mobile */
@@ -121,9 +148,25 @@ footer {
     font-size: 3em;
   }
   content {
-    margin-bottom: 120px; /* footer positioning again, there really needs to be better options for handling footers*/
+    margin-bottom: 168px; /* footer positioning again, there really needs to be better options for handling footers*/
+    margin-right: 40px;
+    margin-left: 40px;
+  }
+  content section.title h1 {
+    font-size: 1.8em;
+  }
+  content section {
+    box-shadow: 0px 0px #00000000;
   }
   content, footer {
     font-size: 2em
+  }
+  footer {
+    flex-direction: column;
+    align-items: center;
+    /* height: 40px; */
+  }
+  footer p {
+    margin: 2px;
   }
 }
