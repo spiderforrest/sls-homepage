@@ -26,7 +26,6 @@ content section.blurb {
 
 content section.contact {
   justify-content: center;
-  height: 200px;
 }
 
 @media (max-width: 601px) or (orientation: portrait) {
